@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+<meta charset="utf-8">
+<title>Demo</title>
+<!-- CSS -->
+   
+<link rel="stylesheet" href="css/date.css">
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery-date.js"></script>
+
+</head>
+<body>
+<!-- search_tab -->
+
+<span style="margin-left:15px">时间</span>
+<input name="date-start" type="text" class="date-start" placeholder="选择开始日期" />
+
+
+
+<script type="text/javascript">
+$(function () {
+	var currYear = (new Date()).getFullYear();
+	var opt={};
+	opt.datetime = {preset : 'datetime'};
+	opt.default = {
+		theme: 'android-ics light', //皮肤样式
+		display: 'modal', //显示方式
+		mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		nowText: "今天",
+		startYear: currYear - 16, //开始年份
+		endYear: currYear + 35 //结束年份
+	};
+	var optDateTime = $.extend(opt['datetime'], opt['default']);
+	$(".date-start").mobiscroll(optDateTime).date(optDateTime);
+
+
+});
+</script>
+</body>
+</html>
